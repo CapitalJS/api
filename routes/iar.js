@@ -1,8 +1,6 @@
-var express = require('express');
-var router = express.Router();
 var capitaljs = require('capitaljs');
 
-router.get('/', function(req, res) {
+function getIar(req, res) {
 
   var investmentReturn = req.query.investmentReturn;
   var inflationRate = req.query.inflationRate;
@@ -13,6 +11,6 @@ router.get('/', function(req, res) {
   });
 
   res.json(result);
-});
+}
 
-module.exports = router;
+module.exports = getIar;

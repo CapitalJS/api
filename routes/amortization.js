@@ -1,9 +1,6 @@
-var express = require('express');
-var router = express.Router();
 var capitaljs = require('capitaljs');
 
-router.get('/', function(req, res) {
-
+function getAmortization(req, res) {
   var amount = req.query.amount;
   var rate = req.query.rate;
   var totalTerm = req.query.totalTerm;
@@ -17,6 +14,6 @@ router.get('/', function(req, res) {
   });
 
   res.json(result);
-});
+}
 
-module.exports = router;
+module.exports = getAmortization;

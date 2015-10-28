@@ -1,8 +1,6 @@
-var express = require('express');
-var router = express.Router();
 var capitaljs = require('capitaljs');
 
-router.get('/', function(req, res) {
+function getCagr(req, res) {
 
   var startValue = req.query.startValue;
   var endValue = req.query.endValue;
@@ -15,6 +13,6 @@ router.get('/', function(req, res) {
   });
 
   res.json(result);
-});
+}
 
-module.exports = router;
+module.exports = getCagr;

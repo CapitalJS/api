@@ -1,8 +1,6 @@
-var express = require('express');
-var router = express.Router();
 var capitaljs = require('capitaljs');
 
-router.get('/', function(req, res) {
+function getInterest(req, res) {
 
   var principal = req.query.principal;
   var rate = req.query.rate;
@@ -17,6 +15,6 @@ router.get('/', function(req, res) {
   });
 
   res.json(result);
-});
+}
 
-module.exports = router;
+module.exports = getInterest;
