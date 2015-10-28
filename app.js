@@ -2,19 +2,25 @@ var express = require('express');
 var capitaljs = require('capitaljs');
 
 var app = express();
+var port = process.env.PORT || 3000;
 
-app.get('/amortization/:amount/:rate/:totalTerm/:amortizeTerm', function(req, res) {
+app.get('/amortization/', function(req, res) {
+
+  var amount = req.query.amount;
+  var rate = req.query.rate;
+  var totalTerm = req.query.totalTerm;
+  var amortizeTerm = req.query.amortizeTerm;
 
   var result = capitaljs.amortization({
-    amount: parseInt(req.params.amount),
-    rate: parseInt(req.params.rate),
-    totalTerm: parseInt(req.params.totalTerm),
-    amortizeTerm: parseInt(req.params.amortizeTerm)
+    amount: amount,
+    rate: rate,
+    totalTerm: totalTerm,
+    amortizeTerm: amortizeTerm
   });
 
   res.json(result);
 });
 
-app.listen(3000, function() {
-  console.log('App started on port 3000');
+app.listen(port, function() {
+  console.log('app started on port ' + port);
 });
