@@ -6,6 +6,12 @@ function getAmortization(req, res) {
   var totalTerm = req.query.totalTerm;
   var amortizeTerm = req.query.amortizeTerm;
 
+  if (isNaN(amount) || isNaN(rate) || isNaN(totalTerm) || isNaN(amortizeTerm)) {
+    res.status(400);
+    res.json({error: 'Bad request'});
+    return;
+  }
+
   var result = capitaljs.amortization({
     amount: amount,
     rate: rate,

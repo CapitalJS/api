@@ -11,6 +11,12 @@ app.use('/iar', require('./routes/iar'));
 app.use('/interest', require('./routes/interest'));
 app.use('/roi', require('./routes/roi'));
 
+// handle 404's
+app.use(function(req, res) {
+  res.status(404);
+  res.json({error: '404'});
+});
+
 app.listen(port, function() {
   console.log('app started on port ' + port);
 });
