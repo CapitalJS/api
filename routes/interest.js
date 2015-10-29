@@ -6,7 +6,7 @@ function getInterest(req, res) {
   var years = req.query.years;
   var compounding = req.query.compounding;
 
-  if (isNaN(principal) || isNaN(rate) || isNaN(years) || isNaN(compounding)) {
+  if (isNaN(principal) || isNaN(rate) || isNaN(years)) {
     res.status(400);
     res.json({error: 'Bad request'});
     return;
