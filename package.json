@@ -2,10 +2,10 @@
   "name": "capitaljs-api",
   "version": "0.0.1",
   "description": "An API for common financial calculations",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register",
-    "start": "babel-node app"
+    "test": "babel-node test/*.js | tap-spec",
+    "start": "babel-node index"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
-    "chai": "^3.4.0",
-    "sinon": "^1.17.2"
+    "supertest": "^1.1.0",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.2"
   }
 }
