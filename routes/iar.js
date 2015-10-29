@@ -15,7 +15,7 @@ function getIar(req, res) {
     inflationRate: inflationRate
   });
 
-  res.json(result);
+  res.json({'return': result});
 }
 
 module.exports = getIar;
